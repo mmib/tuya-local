@@ -83,8 +83,7 @@ secondary_entities:
       - id: 48
         type: string
   - entity: number
-    name: Runtime # Doesn't seem to do anything so hide it)
-    hidden: true
+    name: Runtime # Doesn't seem to do anything so hide it.
     hidden: true
     dps:
       - id: 10
