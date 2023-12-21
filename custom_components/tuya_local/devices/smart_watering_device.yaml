@@ -16,7 +16,7 @@ primary_entity:
           value: OFF
 secondary_entities:
   - entity: select
-    name: Mode
+    name: "Mode"
     icon: "mdi:auto-mode"
     dps:
       - id: 2
@@ -28,7 +28,7 @@ secondary_entities:
           - dps_val: "manual"
             value: "Manual"
   - entity: number
-    name: Timer
+    name: "Timer"
     icon: "mdi:timer"
     category: config
     dps:
@@ -40,7 +40,7 @@ secondary_entities:
           min: 0
           max: 360
   - entity: select
-    name: Pump
+    name: "Pump"
     icon: "mdi:pump"
     category: config
     dps:
@@ -56,37 +56,41 @@ secondary_entities:
             value: "A and B"
   - entity: number
     icon: "mdi:repeat"
-    name: Repeat manual run every
+    name: "Repeat manual run every"
     category: config
     dps:
       - id: 101
         type: integer
+        name: value
         unit: h
         range:
           min: 0
           max: 60
   - entity: sensor
-    name: Run time remaining
+    name: "Run time remaining"
     icon: "mdi:timer-sand"
     dps:
       - id: 102
         type: integer
+        name: sensor
         unit: s
         range:
           min: 0
           max: 360
   - entity: sensor
-    name: Automatic Schedule # This is provided via an unknown encoding so hide it.
+    name: "Automatic Schedule"
     icon: "mdi:calendar"
-    hidden: true
+    category: diagnostic
     dps:
       - id: 48
         optional: true
         type: string
-  - entity: number
-    name: Runtime # Doesn't seem to do anything so hide it.
-    hidden: true
+        name: sensor
+  - entity: sensor
+    name: "Runtime"
+    category: diagnostic
     dps:
       - id: 10
         optional: true
         type: number
+        name: sensor
