@@ -9,12 +9,24 @@ primary_entity:
       type: boolean
       mapping:
         - dps_val: true
-          icon: mdi:scent
+          icon: mdi:pump
           value: ON
         - dps_val: false
-          icon: mdi:scent-off
+          icon: mdi:pump-off
           value: OFF
 secondary_entities:
+  - entity: select
+    name: Mode
+    icon: "mdi:auto-mode"
+    dps:
+      - id: 2
+        type: string
+        name: option
+        mapping:
+          - dps_val: "auto"
+            value: "Auto"
+          - dps_val: "manual"
+            value: "Manual"
   - entity: number
     name: Timer
     icon: "mdi:timer"
@@ -23,7 +35,7 @@ secondary_entities:
       - id: 56
         type: integer
         name: value
-        unit: min
+        unit: s
         range:
           min: 0
           max: 360
@@ -41,4 +53,39 @@ secondary_entities:
           - dps_val: "PumpB"
             value: "B"
           - dps_val: "PumpAB"
-            value: "AB"
+            value: "A and B"
+  - entity: number
+    icon: "mdi:repeat"
+    name: Repeat manual run every
+    category: config
+    dps:
+      - id: 101
+        type: integer
+        unit: h
+        range:
+          min: 0
+          max: 60
+  - entity: sensor
+    name: Run time remaining
+    icon: "mdi:timer-sand"
+    dps:
+      - id: 102
+        type: integer
+        unit: s
+        range:
+          min: 0
+          max: 360
+  - entity: sensor
+    name: Automatic Schedule # This is provided via an unknown encoding so hide it.
+    icon: "mdi:calendar"
+    hidden: true
+    dps:
+      - id: 48
+        type: string
+  - entity: number
+    name: Runtime # Doesn't seem to do anything so hide it)
+    hidden: true
+    hidden: true
+    dps:
+      - id: 10
+        type: number
